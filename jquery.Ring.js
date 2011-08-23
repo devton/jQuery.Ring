@@ -26,7 +26,7 @@
 
         obj.css({'position': o.position});
 
-        if(o.loopInterval == true){
+        if(o.loopInterval){
           setInterval(function(){
             animate.run(obj);
           }, o.timeInterval);
