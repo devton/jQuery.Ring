@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Ring examples.</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script src="../jquery.Ring.js"></script>
+  <style type='text/css'>
+    * { margin:0; padding:0; font-family: verdana; font-size: 14px;}
+    .some_div {
+      width: 200px; height: auto; background:#ccc; color:#000; padding: 10px; text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class='some_div' id="default-ring">
+    Default ring here! :)
+  </div>
+
+  <div class='some_div' id="time-interval-1-sec">
+    With time interval 1sec.
+  </div>
+
+  <div class='some_div' id="without-loop">
+    Only one time.
+  </div>
+
+  <div class='some_div' id="without-loop-big">
+    Only one time with 30px distance.
+  </div>
+
+  <script type="text/javascript">
+    $(function(){
+      $('#default-ring').ring();
+      $('#time-interval-1-sec').ring({timeInterval: 2000});
+      $('#without-loop').ring({timeInterval: 3000, loopInterval: false});
+      $('#without-loop-big').ring({timeInterval: 4000, loopInterval: false, animateDistanceInPixels: 30});
+    })
+  </script>
+</body>
+</html>

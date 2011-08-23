@@ -2,7 +2,11 @@
   $.fn.extend({
     ring: function(options) {
       var defaults = {
-        timeInterval: 5000
+        timeInterval: 5000,
+        position: 'relative',
+        loopInterval: true,
+        animateDistanceInPixels: 5,
+        animateVelocity: 'fast'
       }
 
       var options = $.extend(defaults,options)
@@ -10,16 +14,28 @@
       return this.each(function(){
         var o = options;
         var obj = $(this);
-        var timeInterval = o.timeInterval;
 
-        var animate_effect = function(){
-          obj.animate({"left": "+=5px"}, "fast").
-              animate({"left": "-=10px"}, "fast").
-              animate({"left": "+=15px"}, "fast").
-              animate({"left": "-=10px"}, "fast");
-        };
+        var animate = {
+          run: function(object) {
+            object.animate({"left": "+="+o.animateDistanceInPixels+"px"}, o.animateVelocity).
+                    animate({"left": "-="+(o.animateDistanceInPixels*2)+"px"}, o.animateVelocity).
+                    animate({"left": "+="+(o.animateDistanceInPixels*3)+"px"}, o.animateVelocity).
+                    animate({"left": "-="+(o.animateDistanceInPixels*2)+"px"}, o.animateVelocity);
+          }
+        }
 
-        setInterval('animate_effect()', timeInterval);
+        obj.css({'position': o.position});
+
+        if(o.loopInterval == true){
+          setInterval(function(){
+            animate.run(obj);
+          }, o.timeInterval);
+        } else {
+          setTimeout(function(){
+            animate.run(obj);
+          }, o.timeInterval);
+        }
+
       });
     }
   });
