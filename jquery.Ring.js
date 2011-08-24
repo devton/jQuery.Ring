@@ -26,14 +26,10 @@
 
         obj.css({'position': o.position});
 
-        if(o.loopInterval){
-          setInterval(function(){
-            animate.run(obj);
-          }, o.timeInterval);
+        if(o.loopInterval) {
+          setInterval(function(){ animate.run(obj) }, o.timeInterval);
         } else {
-          setTimeout(function(){
-            animate.run(obj);
-          }, o.timeInterval);
+          setTimeout(function(){ animate.run(obj) }, o.timeInterval);
         }
 
       });
