@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Ring examples.</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script src="../jquery.Ring.js"></script>
+  <style type='text/css'>
+    * { margin:0 0 0 0; padding:20px; font-family: verdana; font-size: 14px;}
+    .some_div {
+      height: auto; background:#ccc; color:#000; padding: 10px; text-align: center;
+      margin:0 0 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class='some_div' id="default-ring">
+    Default ring here! :)<br/><br/>
+    $('#default-ring').ring();
+  </div>
+
+  <div class='some_div' id="time-interval-2-sec">
+    With time interval 2sec.<br/><br/>
+    $('#time-interval-2-sec').ring({timeInterval: 2000});
+  </div>
+
+  <div class='some_div' id="without-loop">
+    Only one time.<br/><br/>
+    $('#without-loop').ring({timeInterval: 3000, loopInterval: false});
+  </div>
+
+  <div class='some_div' id="without-loop-big">
+    Only one time with 30px distance.<br/><br/>
+    $('#without-loop-big').ring({timeInterval: 4000, loopInterval: false, animateDistanceInPixels: 30});
+  </div>
+
+  <script type="text/javascript">
+    $(function(){
+      $('#default-ring').ring();
+      $('#time-interval-2-sec').ring({timeInterval: 2000});
+      $('#without-loop').ring({timeInterval: 3000, loopInterval: false});
+      $('#without-loop-big').ring({timeInterval: 4000, loopInterval: false, animateDistanceInPixels: 30});
+    })
+  </script>
+</body>
+</html>
